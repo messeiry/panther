@@ -33,3 +33,11 @@ Jenkins initial setup is required. An admin user has been created and a password
 Please use the following password to proceed to installation:
 
 96dfa9a2ec9c4fa0912572bf99f45d4d
+
+## Script when build is triggered. 
+
+``` bash 
+
+echo "Build completed at $(date)" >> build_log.txt
+
+```
