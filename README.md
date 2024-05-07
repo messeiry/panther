@@ -23,9 +23,9 @@ Join us on this exciting journey and let's make Python cloud apps testing easier
 
 ``` bash
 docker pull jenkins/jenkins:lts
-docker volume create jenkins-data
+docker volume create jenkins-data2
 
-docker run -p 8080:8080 -p 50000:50000 -v jenkins-data:/var/jenkins_home --name myjenkins jenkins/jenkins:lts
+docker run -p 8080:8080 -p 50000:50000 -v jenkins-data2:/var/jenkins_home --name myjenkins jenkins/jenkins:lts
 
 ```
 
@@ -46,4 +46,20 @@ echo "Build completed at $(date)" >> build_log.txt
 some changes 
 
 
-s
+``` dns
+
+docker run -d \
+  --name=duckdns \
+  --net=host `#optional` \
+  -e PUID=1000 `#optional` \
+  -e PGID=1000 `#optional` \
+  -e TZ=Etc/UTC `#optional` \
+  -e SUBDOMAINS=pantherchaos.duckdns.org \
+  -e TOKEN=39343eea-e111-483f-a9ce-d32159355c77 \
+  -e UPDATE_IP=ipv4 `#optional` \
+  -e LOG_FILE=false `#optional` \
+  -v /path/to/duckdns/config:/config `#optional` \
+  --restart unless-stopped \
+  lscr.io/linuxserver/duckdns:latest
+
+```
